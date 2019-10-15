@@ -17,6 +17,10 @@ print "> "
 human_player_name = gets.chomp
 user = HumanPlayer.new(human_player_name)
 
+puts "Voici ton équipement de base :"
+sleep 1
+user.show_state
+sleep 1
 puts "Le jeu va commencer #{user.name}, prépare toi !"
 sleep 1
 puts "..."
