@@ -76,6 +76,22 @@ class HumanPlayer < Player
 		end
   end
 
-
+  def search_health_pack
+   @rand_health = rand(1..6)
+   if @rand_health == 1
+   	return "Tu n'a rien trouvé..."
+   elsif @rand_health > 2 && @rand_health <= 5
+    return "Bravo tu as trouve +50 pts de vie"
+  	@life_points += 50
+      if @life_points > 100
+         @life_points == 100
+      end
+    else
+    return "Waouh tu as trouvé un pack de +80 pts de vie"
+      if @life_points > 100
+         @life_points == 100
+      end
+  	end
+	end
 
 end
