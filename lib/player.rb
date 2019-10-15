@@ -5,9 +5,9 @@ class Player
 	attr_accessor :name, :life_points
 
 #Je définis ma première méthode initialize avec deux arguments et j'initialise les attributs de ma classe
-	def initialize(player_name, state_of_life = 10)
+	def initialize(player_name)
 		@name = player_name.to_s
-		@life_points = state_of_life
+		@life_points = 10
 	end
 
 #Je définis ma méthode show_state qui va appeler mes deux attributs
@@ -41,5 +41,41 @@ class Player
 	def compute_damage
     return rand(1..6)
   end
+
+end
+
+
+class HumanPlayer < Player
+#Ici je fais hériter les méthodes de ma classe mère Player à la class fille HumanPlayer
+	attr_accessor :weapon_level
+#Et je définis un nouvel attribut
+
+	def initialize(player_name)
+    super(player_name)
+#J'utilise la méthode super vu que je rajoute un nouvel attribut mais que je n'ai pas envie de copier coller toute la méthode initialize de la classe Player
+    @weapon_level = 1
+    @life_points = 100  
+  end
+
+  def show_state
+		puts "#{@name} a #{@life_points} points de vie et une arme de niveau #{@weapon_level}."
+	end
+
+	def compute_damage
+    rand(1..6) * @weapon_level
+  end
+
+  def search_weapon
+  	new_weapon = rand(1..6)
+  	if new_weapon > @weapon_level
+  		puts "Youpi, c'est trop bien les gros guns puissants !!!"
+  		@weapon_level = new_weapon
+#Je récupère la valeur de ma nouvelle arme dans mon attribut weapon_level
+  	else new_weapon <= @weapon_level
+  		puts "C'est naze, tu restes avec ton couteau à beurre..."
+		end
+  end
+
+
 
 end
