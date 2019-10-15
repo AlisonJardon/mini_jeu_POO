@@ -1,1 +1,1 @@
-# mini_jeu_POO
+Bonjour correctrice ou correcteur !
