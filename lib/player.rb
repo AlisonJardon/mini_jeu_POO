@@ -21,7 +21,7 @@ class Player
 	def gets_damage(damages)
 		@life_points = @life_points - damages
 		if @life_points <= 0
-			puts "FATALITY ! #{@name} est morte !"
+			puts "FATALITY ! #{@name} est vaincue !"
 		else
 			puts "#{@name} a #{@life_points} points de vie !"
 		end
